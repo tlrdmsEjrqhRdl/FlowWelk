@@ -1,1 +1,72 @@
 @import "tailwindcss";
+
+@theme {
+  --font-brand-sans: "Pretendard Variable", "SUIT Variable", "Noto Sans KR",
+    "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+
+  --color-brand-primary: #4f46e5;
+  --color-brand-primary-soft: #818cf8;
+  --color-brand-bg: #0b0e14;
+  --color-brand-surface: #11141d;
+  --color-brand-text: #ffffff;
+  --color-brand-muted: #64748b;
+  --color-brand-danger: #f43f5e;
+  --color-brand-success: #10b981;
+
+  --radius-brand-card: 1rem;
+  --radius-brand-pill: 2.5rem;
+  --shadow-brand-float: 0 20px 45px -18px rgb(79 70 229 / 0.35);
+  --shadow-brand-soft: 0 10px 30px -16px rgb(79 70 229 / 0.2);
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    font-family: var(--font-brand-sans);
+    background: radial-gradient(
+        1200px 600px at 10% -10%,
+        rgb(129 140 248 / 0.2),
+        transparent 55%
+      ),
+      radial-gradient(
+        1000px 500px at 100% 0%,
+        rgb(79 70 229 / 0.18),
+        transparent 60%
+      ),
+      var(--color-brand-bg);
+    color: var(--color-brand-text);
+  }
+}
+
+@layer components {
+  .fw-surface {
+    background-color: var(--color-brand-surface);
+    border-radius: var(--radius-brand-card);
+    box-shadow: var(--shadow-brand-float);
+    border: 1px solid rgb(148 163 184 / 0.15);
+    backdrop-filter: blur(20px);
+  }
+}
+
+@layer utilities {
+  .fw-title {
+    @apply text-4xl font-extrabold italic;
+  }
+
+  .fw-subtitle {
+    @apply text-xl font-bold;
+  }
+
+  .fw-label {
+    @apply text-[11px] font-bold uppercase tracking-widest;
+  }
+
+  .fw-body {
+    @apply text-sm font-medium;
+  }
+}
